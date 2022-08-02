@@ -1,8 +1,10 @@
 from django.shortcuts import render
 
-from django.views.generic import ListView, DeleteView, CreateView, UpdateView, DetailView
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView
 
-from WorldCup.App_Mundiales.models import Cancion, Estadio, Jugador
+from App_Mundiales.models import Cancion, Estadio, Jugador
 
 # Create your views here.
 
@@ -15,21 +17,21 @@ class JugadorCreate(CreateView):
     model = Jugador
     template_name = 'cargar_jugador.html'
     fields = ["nombre", "apellido", "pais", "descripcion", "video_url"]
-    success_url = '/app-mundial/'
+    success_url = '/app-mundiales/'
 
 class EstadioCreate(CreateView):
 
     model = Estadio
     template_name = 'cargar_estadio.html'
     fields = ["nombre", "capacidad", "ciudad", "descripcion", "video_url"]
-    success_url = '/app-mundial/'
+    success_url = '/app-mundiales/'
 
 class CancionCreate(CreateView):
 
     model = Cancion
     template_name = 'cargar_cancion.html'
     fields = ["nombre", "interprete", "mundial", "video_url"]
-    success_url = '/app-mundial/'
+    success_url = '/app-mundiales/'
 
 class JugadorList(ListView):
 
