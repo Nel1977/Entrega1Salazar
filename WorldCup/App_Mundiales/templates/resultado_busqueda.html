@@ -1,15 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado búsqueda</title>
-</head>
-<body>
-    <h1>Resultado</h1>
+{% extends 'padre.html' %}
 
-    {% if estadios %}
+{% load static %}
+
+{% block contenido %}
+
+<section class='about section'>
+    <div class='overlay'></div>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+          <div class='' data-animation='fadeInDown'>
+            <h1 class='section-title'>
+              Resultado de la búsqueda
+            </h1>
+          </div>
+          <div class='row'>
+
+            {% if estadios %}
+                {% for estadio in estadios %}
+
+                <div class='col-sm-4'>
+                <div class='mg-b text-center'>
+                    <i class='fa fa-user ico-circle'></i>
+                    <h3 class='f-thin'>
+                    {{estadio.nombre}}
+                    </h3>
+                    <p>
+                    {{estadio.ciudad}}
+                    </p>
+                    <a class='btn btn-color btn-lg js-to-slide' data-slide='3' href="{% url 'DetalleEstadios' estadio.id %}">
+                        Ver más
+                    </a>
+                </div>
+                </div>
+
+                {% endfor %}
+            {% else %}
+
+                <p>No hubo coincidencias!</p>
+
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock contenido %}
+
+
+{% if estadios %}
 
         <ul>
 
@@ -26,6 +67,3 @@
         <p>No hubo coincidencias!</p>
         
     {% endif %}
-
-</body>
-</html>

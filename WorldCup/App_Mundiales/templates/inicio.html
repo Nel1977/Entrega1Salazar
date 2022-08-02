@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-</head>
-<body>
-    <h1>Página de Inicio</h1>
-    <ul>
-        <button>
-            <a href="{% url 'ListaJugadores' %}">Jugadores</a>
-        </button>
-        <button>
-            <a href="{% url 'ListaEstadios' %}">Estadios</a>
-        </button>
-        <button>
-            <a href="{% url 'ListaCanciones' %}">Canciones</a>
-        </button>
-        <button>
-            <a href="{% url 'CreaJugadores' %}">Ingresar Jugadores</a>
-        </button>
-        <button>
-            <a href="{% url 'CreaEstadios' %}">Ingresar Estadios</a>
-        </button>
-        <button>
-            <a href="{% url 'CreaCanciones' %}">Ingresar Canciones</a>
-        </button>
-        <button>
-            <a href="{% url 'BusquedaEstadio' %}">Buscar Estadios</a>
-        </button>
-    </ul>
+{% extends 'padre.html' %}
 
-</body>
-</html>
+{% load static %}
+
+{% block contenido %}
+
+<section class='welcome section-content section'>
+    <div class='overlay'></div>
+    <div class='container'>
+      <div class='text-center'>
+        <h1 class='section-title animated onstart' data-animation='fadeInDown'>
+          <span class="highlight f-bold">World Cup</span>
+        </h1>
+        <div id="clock" class="onstart animated"></div>
+        <div class='mg-t'>
+          <a class='btn btn-color btn-lg js-to-slide' data-slide='3' href="{% url 'ListaJugadores' %}">
+            Jugadores
+          </a>
+          <a class='btn btn-color btn-lg js-to-slide' data-slide='3' href="{% url 'ListaEstadios' %}">
+            Estadios
+          </a>
+          <a class='btn btn-color btn-lg js-to-slide' data-slide='3' href="{% url 'ListaCanciones' %}">
+            Canciones
+          </a>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% endblock contenido %}

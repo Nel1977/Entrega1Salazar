@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargar estadio</title>
-</head>
-<body>
-    <h1>Cargar nuevo estadio</h1>
+{% extends 'padre.html' %}
 
-    <form action="{% url 'CreaEstadios' %}" method="POST">{% csrf_token %}
+{% load static %}
 
-        {{form.as_p}}
+{% block contenido %}
 
-        <input type="submit" value="Enviar">
+<section class='welcome section-content section'>
+    <div class='overlay'></div>
+        <div class='container'>
+            <div class='text-center'>
+                <h1>Ingresar estadio</h1>
 
-    </form>
+                <form action="{% url 'CreaEstadios' %}" method="POST">{% csrf_token %}
 
-</body>
-</html>
+                    {{form.as_p}}
+
+                    <input class='btn btn-color btn-lg js-to-slide' type="submit" value="Enviar">
+
+                </form>
+
+            </div>
+        </div>
+</section>
+
+{% endblock contenido %}

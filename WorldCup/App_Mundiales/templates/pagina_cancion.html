@@ -1,15 +1,34 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canción</title>
-</head>
-<body>
-    <h1>{{cancion.nombre}} {{cancion.interprete}} </h1>
+{% extends 'padre.html' %}
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat magnam animi sit suscipit harum non adipisci, magni veniam dicta aut voluptatibus esse autem minus id temporibus, debitis perspiciatis vitae hic!</p>
+{% load static %}
 
-</body>
-</html>
+{% block contenido %}
+
+<section class='about section'>
+    <div class='overlay'></div>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+          <div class='hero-content'>
+            <h1 class='section-title text-left'>
+                {{cancion.nombre}}
+            </h1>
+          </div>
+          <div class='row mg-b'>
+            <div class='col-sm-6'>
+              <div class='mg-b'>
+                <p>
+                    {{cancion.interprete}}
+                </p>
+                <p>
+                    Canción oficial del mundial {{cancion.mundial}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock contenido %}
