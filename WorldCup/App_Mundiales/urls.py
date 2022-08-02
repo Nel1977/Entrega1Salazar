@@ -5,6 +5,7 @@ from App_Mundiales.views import (
     EstadioCreate, EstadioList, EstadioDetail,
     CancionCreate, CancionList, CancionDetail
 )
+from App_Mundiales.views import buscar, busquedaEstadio
 
 urlpatterns = [
     path('', inicio, name="Inicio"),
@@ -17,4 +18,7 @@ urlpatterns = [
     path('detalleJugadores/<int:pk>', JugadorDetail.as_view(), name="DetalleJugadores"),
     path('detalleEstadios/<int:pk>', EstadioDetail.as_view(), name="DetalleEstadios"),
     path('detalleCanciones/<int:pk>', CancionDetail.as_view(), name="DetalleCanciones"),
+    path('busquedaEstadio/', busquedaEstadio, name="BusquedaEstadio"),
+    path('buscar/', buscar, name="Buscar"),
+
 ]

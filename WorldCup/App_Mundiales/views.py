@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from django.views.generic import ListView
@@ -68,3 +69,23 @@ class CancionDetail(DetailView):
     model = Cancion
     template_name = 'pagina_cancion.html'
     context_object_name = 'cancion'
+
+def busquedaEstadio(request):
+
+    return render(request, 'busqueda_estadio.html')
+
+def buscar(request):
+
+    if request.GET["nombre"]:
+
+        nombre = request.GET["nombre"]
+
+        estadios = Estadio.objects.filter(nombre__icontains=nombre)
+
+        return render(request, "resultado_busqueda.html", {"estadios": estadios, "nombre": nombre})
+
+    else:
+
+        respuesta = "No enviaste datos"
+
+    return HttpResponse(respuesta)
